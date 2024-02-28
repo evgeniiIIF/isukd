@@ -1,0 +1,15 @@
+<app-table-toolbar [buttons]="toolbarButtons"></app-table-toolbar>
+<ng-container>
+  <app-generic-table
+    [columns]="tableSchema?.columns"
+    [items]="tableData?.items"
+    [qp]="qp"
+    [isLoading]="isLoading"
+    [showCheckboxes]="false"
+    selectionMode="single"
+    [showActionMenu]="true"
+    [actionMenu]="actionMenu"
+    (paginationEvent)="onPagination($event)"
+    (rowSelectionEvent)="onRowSelection($event)"
+  ></app-generic-table>
+</ng-container>

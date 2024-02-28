@@ -1,0 +1,90 @@
+<div *ngIf="form" class="card" [formGroup]="form">
+  <ng-container *ngFor="let field of dictionaryFields">
+    <div *ngIf="field.isVisibleInEdit" class="field grid">
+      <label [for]="field.name" class="col-4"
+        >{{ field.title }} <span *ngIf="field.isRequired">*</span></label
+      >
+      <div class="col-8">
+        <ng-container [ngSwitch]="field.type">
+          <ng-container *ngSwitchCase="1">
+            <p-inputNumber
+              [formControlName]="field.name"
+              [showButtons]="true"
+              inputId="stacked"
+            >
+            </p-inputNumber>
+          </ng-container>
+          <ng-container *ngSwitchCase="4">
+            <input
+              pInputText
+              type="text"
+              [id]="field.name"
+              [formControlName]="field.name"
+            />
+          </ng-container>
+          <ng-container *ngSwitchCase="6">
+            <p-calendar
+              [formControlName]="field.name"
+              [showTime]="true"
+              [showIcon]="true"
+            ></p-calendar>
+          </ng-container>
+          <ng-container *ngSwitchCase="7">
+            <p-autoComplete
+              placeholder="-"
+              [formControlName]="field.name"
+              dataKey="_ID_"
+              field="Title"
+              [dropdown]="true"
+              [forceSelection]="true"
+            ></p-autoComplete>
+          </ng-container>
+          <ng-container *ngSwitchCase="8">
+            <app-multi-lookup
+              [dictionaryId]="dictionaryId"
+              [lookupDictionaryId]="field.lookupDictionaryId"
+              [recordId]="recordId"
+              [fieldName]="field.name"
+            ></app-multi-lookup>
+          </ng-container>
+          <ng-container *ngSwitchCase="11">
+            <p-dropdown
+              [options]="field.options"
+              optionValue="id"
+              optionLabel="title"
+              [autoDisplayFirst]="false"
+              [formControlName]="field.name"
+            ></p-dropdown>
+          </ng-container>
+          <ng-container *ngSwitchCase="13">
+            <app-files-field
+              [dictionaryId]="dictionaryId"
+              [recordId]="recordId"
+              [fieldName]="field.name"
+            ></app-files-field>
+          </ng-container>
+          <ng-container *ngSwitchCase="19">
+            <p-checkbox
+              [formControlName]="field.name"
+              [binary]="true"
+            ></p-checkbox>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+  <div class="footer flex justify-content-end">
+    <p-button
+      label="Отменить"
+      icon="pi pi-times"
+      styleClass="p-button-secondary p-button-sm"
+      [style]="{ 'margin-right': '.5em' }"
+    ></p-button>
+    <p-button
+      label="Сохранить"
+      icon="pi pi-check"
+      styleClass="p-button-sm"
+      (click)="saveRecord()"
+    ></p-button>
+  </div>
+</div>

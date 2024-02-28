@@ -1,0 +1,7 @@
+<ng-container *ngIf="recordId; else noId">
+  <i class="pi pi-file"></i
+  ><a href="#" (click)="openFilesTableModal($event)">Вложенные файлы</a>
+</ng-container>
+<ng-template #noId>
+  <i class="pi pi-info-circle"></i>Необходимо создать основную запись
+</ng-template>

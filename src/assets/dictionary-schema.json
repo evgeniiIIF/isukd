@@ -1,0 +1,75 @@
+{
+  "dictionary": {
+    "id": "5000100",
+    "guid": "",
+    "orderbyfields": "Title",
+    "connectionstring": "IsukdDB",
+    "title": "Типы значений2",
+    "singletitle": "Тип значения2",
+    "datasource": "[USTORE].[dbo].[FactValueType]",
+    "assemblytype": "Isukd.System.Data.Mssql2005.PoMssql2005Dictionary, Isukd.System.Data.Mssql2005, Version=1.07.06.06, Culture=neutral, PublicKeyToken=3ae53ce029aa1fed",
+    "basedictionaries": "{1000008}",
+    "parentdictionaries": "",
+    "childdictionaries": "",
+    "usage": "{LOG}{LINKS}{VERTICALLAYOUT}{ITEMACCESSCONTROL}{READONLY}",
+    "description": "",
+    "view": {
+      "actions": {
+        "list": "{ViewLinked}{ViewList}{Merge}{CreateCopy}{CreateNew}{Compare}{ViewInTree}{ViewSimilar}{Forum}"
+      },
+      "logdenytypes": [],
+      "security": {
+        "disablecheck": []
+      },
+      "children": {
+        "state": "COLLAPSED",
+        "tabs": "Collapsed"
+      },
+      "grid": {
+        "resizable": "true",
+        "hiddencolumns": "{}{}"
+      }
+    },
+    "keys": {
+      "key": {
+        "displayname": "В Системе уже зарегистрирована запись с таким шифром",
+        "keyfields": "{FactValueTypeCode}"
+      }
+    },
+    "fields": [
+      {
+        "type": "TEXT",
+        "size": "200",
+        "internalname": "Title",
+        "displayname": "Название",
+        "visibility": "{Add}{Edit}{View}",
+        "usage": "{LIST}{READONLY}"
+      },
+      {
+        "type": "TEXT",
+        "size": "250",
+        "internalname": "FactValueTypeName",
+        "displayname": "Наименование",
+        "group": "Тип значения",
+        "visibility": "{Add}{Edit}{View}",
+        "usage": "{REQUIRED}{LIST}{CARD}"
+      },
+      {
+        "type": "TEXT",
+        "size": "150",
+        "internalname": "FactValueTypeCode",
+        "displayname": "Шифр",
+        "visibility": "{Add}{Edit}{View}",
+        "usage": "{REQUIRED}{LIST}{CARD}"
+      },
+      {
+        "type": "TEXT",
+        "size": "300",
+        "internalname": "Description",
+        "displayname": "Примечание",
+        "visibility": "{Add}{Edit}{View}",
+        "usage": "{LIST}{CARD}"
+      }
+    ]
+  }
+}

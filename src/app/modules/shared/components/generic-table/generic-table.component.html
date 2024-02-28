@@ -1,0 +1,83 @@
+<app-preloader [isLoading]="!items"></app-preloader>
+<ng-container *ngIf="items">
+  <p-table
+    [value]="items"
+    [resizableColumns]="true"
+    columnResizeMode="expand"
+    responsiveLayout="scroll"
+    [scrollable]="true"
+    scrollDirection="both"
+    [selectionMode]="selectionMode"
+    [selectionPageOnly]="true"
+    dataKey="_ID_"
+    [loading]="isLoading"
+    styleClass="p-datatable-striped"
+    (selectionChange)="onRowSelection($event)"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th *ngIf="showCheckboxes"></th>
+        <th
+          *ngFor="let column of columns"
+          pResizableColumn
+          [ngStyle]="{
+            width: column.width + 'px'
+          }"
+        >
+          {{ column.title }}
+        </th>
+        <th
+          *ngIf="showActionMenu"
+          pFrozenColumn
+          alignFrozen="right"
+          [ngStyle]="{
+            width: 82 + 'px'
+          }"
+        ></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+      <tr [pSelectableRow]="rowData" [pSelectableRowIndex]="rowIndex">
+        <td *ngIf="showCheckboxes">
+          <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+        </td>
+        <td
+          *ngFor="let column of columns"
+          pResizableColumn
+          [ngStyle]="{
+            width: column.width + 'px'
+          }"
+        >
+          <ng-container [ngSwitch]="column.type">
+            <ng-container *ngSwitchCase="6">
+              {{ rowData[column.name] | date: "medium" }}
+            </ng-container>
+            <ng-container *ngSwitchCase="7">{{
+            rowData[column.name]?.['Title']
+            }}</ng-container>
+            <ng-container *ngSwitchCase="19">
+              {{ rowData[column.name] | yesNo }}
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+              {{ rowData[column.name] }}
+            </ng-container>
+          </ng-container>
+        </td>
+        <td *ngIf="showActionMenu" pFrozenColumn alignFrozen="right">
+          <app-table-row-actions
+            [id]="rowData['_ID_']"
+            [actionMenu]="actionMenu"
+          >
+          </app-table-row-actions>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-paginator
+    *ngIf="items.length"
+    [rows]="rows"
+    [totalRecords]="totalRecords"
+    [rowsPerPageOptions]="[5, 10, 25, 50]"
+    (onPageChange)="paginate($event)"
+  ></p-paginator>
+</ng-container>

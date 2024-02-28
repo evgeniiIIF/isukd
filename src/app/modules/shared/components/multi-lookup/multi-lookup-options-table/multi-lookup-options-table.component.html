@@ -1,0 +1,28 @@
+<app-table-toolbar [buttons]="toolbarButtons"></app-table-toolbar>
+<ng-container>
+  <app-generic-table
+    [columns]="tableSchema?.columns"
+    [items]="tableData?.items"
+    [qp]="qp"
+    [isLoading]="isLoading"
+    [showCheckboxes]="true"
+    selectionMode="multiple"
+    (paginationEvent)="onPagination($event)"
+    (rowSelectionEvent)="onRowSelection($event)"
+  ></app-generic-table>
+</ng-container>
+<div class="footer flex justify-content-end">
+  <p-button
+    label="Закрыть"
+    icon="pi pi-times"
+    styleClass="p-button-secondary p-button-sm"
+    [style]="{ 'margin-right': '.5em' }"
+  ></p-button>
+  <p-button
+    label="Добавить"
+    icon="pi pi-times"
+    styleClass="p-button-sm"
+    [style]="{ 'margin-right': '.5em' }"
+    (click)="addItems()"
+  ></p-button>
+</div>

@@ -1,0 +1,7 @@
+<ng-container *ngIf="recordId; else noId"
+  ><i class="pi pi-link"></i
+  ><a href="#" (click)="openMultiLookupModal($event)">Cвязанные записи</a>
+</ng-container>
+<ng-template #noId>
+  <i class="pi pi-info-circle"></i>Необходимо создать основную запись
+</ng-template>

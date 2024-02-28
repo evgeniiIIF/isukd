@@ -1,0 +1,21 @@
+<div *ngIf="!logRecordData" class="flex justify-content-center">
+  <p-progressSpinner></p-progressSpinner>
+</div>
+<ng-container *ngIf="logRecordData && logRecordFields">
+  <div class="field">
+    <span class="field-title">IP адрес: </span>
+    <span>{{ logRecordData.ipAddress }}</span>
+  </div>
+  <div class="field">
+    <span class="field-title">Дата логирования: </span>
+    <span>{{ logRecordData.createDate | date : 'medium' }}</span>
+  </div>
+  <ng-container *ngFor="let field of logRecordFields">
+    <div *ngIf="field.oldValue != field.newValue" class="field">
+      <span class="field-title">{{ field.title }}: </span>
+      <span class="old-value">{{ field.oldValue }}</span>
+      &#8594;
+      <span class="new-value">{{ field.newValue }}</span>
+    </div>
+  </ng-container>
+</ng-container>

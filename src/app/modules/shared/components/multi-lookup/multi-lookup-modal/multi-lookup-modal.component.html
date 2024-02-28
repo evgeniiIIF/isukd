@@ -1,0 +1,19 @@
+<ng-container *ngIf="dictionarySchema">
+  <app-multi-lookup-items-table
+    [lookupDictionaryId]="lookupDictionaryId"
+    [dictionaryId]="dictionaryId"
+    [dictionarySchema]="dictionarySchema"
+    [recordId]="recordId"
+    [fieldName]="fieldName"
+  >
+  </app-multi-lookup-items-table>
+</ng-container>
+<div class="footer flex justify-content-end">
+  <p-button
+    label="Закрыть"
+    icon="pi pi-times"
+    styleClass="p-button-secondary p-button-sm"
+    [style]="{ 'margin-right': '.5em' }"
+    (click)="closeDialog()"
+  ></p-button>
+</div>

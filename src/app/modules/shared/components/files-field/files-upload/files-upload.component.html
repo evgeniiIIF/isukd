@@ -1,0 +1,15 @@
+<p-fileUpload
+  (onUpload)="onUpload($event)"
+  [multiple]="false"
+  [maxFileSize]="1000000"
+  [customUpload]="true"
+  (uploadHandler)="uploadFiles($event)"
+>
+  <ng-template pTemplate="content">
+    <ul *ngIf="uploadedFiles.length">
+      <li *ngFor="let file of uploadedFiles">
+        {{ file.name }} - {{ file.size }} bytes
+      </li>
+    </ul>
+  </ng-template>
+</p-fileUpload>

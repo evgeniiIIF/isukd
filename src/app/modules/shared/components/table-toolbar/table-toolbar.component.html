@@ -1,0 +1,29 @@
+<div class="grid">
+  <div class="col-6">
+    <div class="formgroup-inline">
+      <div class="field">
+        <input pInputText id="search" type="text" name="search" />
+      </div>
+      <p-button
+        label="Найти"
+        icon="pi pi-search"
+        styleClass="p-button-outlined"
+      ></p-button>
+    </div>
+  </div>
+  <div class="col-6 flex justify-content-end">
+    <div class="formgroup-inline">
+      <div class="field">
+        <ng-container *ngFor="let button of buttons">
+          <p-button
+            [label]="button.title"
+            [icon]="button.icon"
+            [disabled]="button.disabled"
+            styleClass="p-button-outlined"
+            (click)="button.click()"
+          ></p-button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

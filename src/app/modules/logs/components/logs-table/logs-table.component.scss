@@ -1,0 +1,11 @@
+::ng-deep {
+  .logs-table {
+    width: 100% !important;
+
+    tr {
+      td:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<ng-container *ngIf="record">
+  <ng-container *ngFor="let field of dictionaryFields">
+    <div *ngIf="field.isVisibleInCard" class="field">
+      <ng-container [ngSwitch]="field.type">
+        <ng-container *ngSwitchCase="2">
+          <span class="field-title">{{ field.title }}: </span
+          >{{ record[field.name] }}
+        </ng-container>
+
+        <ng-container *ngSwitchCase="4">
+          <span class="field-title">{{ field.title }}: </span
+          >{{ record[field.name] }}
+        </ng-container>
+
+        <ng-container *ngSwitchCase="6">
+          <span class="field-title">{{ field.title }}: </span
+          >{{ record[field.name] }}
+        </ng-container>
+
+        <ng-container *ngSwitchCase="7">
+          <span class="field-title">{{ field.title }}: </span
+          >{{ record[field.name]?.['Title'] }}
+        </ng-container>
+      </ng-container>
+    </div>
+  </ng-container>
+</ng-container>

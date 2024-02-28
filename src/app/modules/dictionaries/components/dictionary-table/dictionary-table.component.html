@@ -1,0 +1,10 @@
+<app-table-toolbar [buttons]="toolbarButtons"></app-table-toolbar>
+<app-generic-table
+  [columns]="tableSchema?.columns"
+  [items]="tableData?.items"
+  [qp]="qp"
+  [isLoading]="isLoading"
+  [showActionMenu]="true"
+  [actionMenu]="actionMenu"
+  (paginationEvent)="onPagination($event)"
+></app-generic-table>

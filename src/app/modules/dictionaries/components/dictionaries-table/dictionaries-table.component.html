@@ -1,0 +1,10 @@
+<app-generic-table
+  [columns]="tableSchema?.columns"
+  [items]="tableData?.items"
+  [qp]="qp"
+  [isLoading]="isLoading"
+  [showActionMenu]="false"
+  [actionMenu]="actionMenu"
+  (rowSelectionEvent)="onRowSelect($event)"
+  (paginationEvent)="onPagination($event)"
+></app-generic-table>

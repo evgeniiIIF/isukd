@@ -1,0 +1,23 @@
+::ng-deep {
+  .dictionary-table {
+    width: 100% !important;
+
+    tr:nth-child(odd) td:first-of-type {
+      background: #ffffff;
+    }
+
+    tr:nth-child(even) td:first-of-type {
+      background: #fcfcfc;
+    }
+
+    th:last-child {
+      flex: 1 !important;
+      display: inline-block;
+    }
+
+    td:last-child {
+      flex: 1 !important;
+      display: inline-block;
+    }
+  }
+}

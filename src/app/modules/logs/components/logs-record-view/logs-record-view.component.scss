@@ -1,0 +1,17 @@
+.field {
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  .field-title {
+    font-weight: 600;
+  }
+
+  .old-value {
+    color: red;
+  }
+
+  .new-value {
+    color: green;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "/api/v1": {
+    "target": "http://vm.sharefront.ru:2218",
+    "secure": false
+  }
+}

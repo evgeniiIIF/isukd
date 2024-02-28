@@ -1,0 +1,11 @@
+<ng-container *ngIf="dictionarySchema">
+  <app-multi-lookup-options-table
+    [dictionaryId]="dictionaryId"
+    [lookupDictionaryId]="lookupDictionaryId"
+    [recordId]="recordId"
+    [fieldName]="fieldName"
+    [dictionarySchema]="dictionarySchema"
+    (closeModalEvent)="dialogRef.close()"
+  >
+  </app-multi-lookup-options-table>
+</ng-container>

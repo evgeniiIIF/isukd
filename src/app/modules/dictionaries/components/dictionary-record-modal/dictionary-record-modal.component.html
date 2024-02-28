@@ -1,0 +1,19 @@
+<app-spinner *ngIf="isLoading"></app-spinner>
+
+<app-dictionary-record-view
+  *ngIf="mode === viewModeEnum.View && !isLoading"
+  [record]="record"
+  [dictionaryFields]="dictionaryFields"
+></app-dictionary-record-view>
+
+<app-dictionary-record-edit
+  *ngIf="
+    (mode === viewModeEnum.Create || mode === viewModeEnum.Edit) && !isLoading
+  "
+  [dictionaryId]="dictionaryId"
+  [recordId]="recordId"
+  [record]="record"
+  [dictionaryFields]="dictionaryFields"
+  [mode]="mode"
+  (saveRecordEvent)="saveRecord($event)"
+></app-dictionary-record-edit>

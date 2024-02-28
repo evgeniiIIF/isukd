@@ -1,0 +1,16 @@
+<ng-container>
+  <ng-container *ngIf="actionMenu">
+    <button
+      pButton
+      icon="pi pi-ellipsis-v"
+      class="row-button p-button-text p-button-sm"
+      (click)="menu.toggle($event)"
+    ></button>
+    <p-menu
+      #menu
+      [popup]="true"
+      [model]="actionMenu"
+      [appendTo]="'body'"
+    ></p-menu>
+  </ng-container>
+</ng-container>
