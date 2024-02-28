@@ -30,6 +30,7 @@ export class DictionaryApiService {
         resizableGrid: true,
         hiddenListColumns: [2],
         hiddenListMenus: ['hiddenListMenus'],
+        // to do
         // fileHandlers: [],
       },
       fields: [

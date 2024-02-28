@@ -12,6 +12,7 @@ export interface DictionarySchemaApi {
     resizableGrid: boolean;
     hiddenListColumns: number[];
     hiddenListMenus: string[];
+    // to do
     // fileHandlers: [];
     fileHandlers?: [];
   };
